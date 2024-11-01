@@ -1,4 +1,4 @@
-# Bayesian Deconvolution
+# BayesianDeconvolution
 
 Bayesian Deconvolution code accurately incorporates all sources of noise in the data and provides stricly positive solutions without arbitrary smoothness constraints or ad-hoc parameter tuning. It implements Markov chain Monte Carlo (MCMC) algorithms to learn probability distributions over the main function of interest: object intensity map. These tools can be used in a simple plug and play manner. Check the following paper to see details of all the mathematics involved.
 
@@ -6,7 +6,7 @@ https://www.biorxiv.org/content/10.1101/2023.12.07.570701v5
 
 ## Julia Installation
 
-**System Requirements: Bayesian Deconvolution is a parallelized code and has been fully tested on modern desktops and laptops with at least 4 processor cores.  In addition to about twice the memory required to load raw image globally, the code typically requests about 250 MB of RAM to load Julia packages on each processor core.**
+**System Requirements: BayesianDeconvolution is a parallelized code and has been fully tested on modern desktops and laptops with at least 4 processor cores.  In addition to about twice the memory required to load raw image globally, the code typically requests about 250 MB of RAM to load Julia packages on each processor core.**
 
 All the codes are written in Julia language for high performance/speed (similar to C and Fortran) and its open-source/free availability. Julia also allows easy parallelization of all the codes. To install julia, please download and install julia language installer from their official website (see below) for your operating system or use your package manager. The current version of the code has been successfully tested on linux (Ubuntu 22.04), macOS 12, and Windows.
 
@@ -37,15 +37,15 @@ These two ways are equivalent. Both of them create a new Julia environment the f
 
 ## Test Examples
 
-Complex programs like Bayesian Deconvolution require scripts for better organization instead of typing functions into the REPL for every run. The code is currently organized into multiple scripts. The main script "main.jl" calls all the functions performing deconvolution and the input parameter script "input_parameters.jl" defines all the input parameters needed to perform reconstruction (see the image below).
+Complex programs like BayesianDeconvolution require scripts for better organization instead of typing functions into the REPL for every run. The code is currently organized into multiple scripts. The main script "main.jl" calls all the functions performing deconvolution and the input parameter script "input_parameters.jl" defines all the input parameters needed to perform reconstruction (see the image below).
 
 ![image](https://github.com/user-attachments/assets/86bcf040-fbf9-4f1c-b0f6-ca04294bb68b)
 
 These parameters define the shape of the microscope point spread function (numerical aperture, magnification, light wavelength), camera noise (gain, CCD sensitivity, readout), directory (folder) where files are located, file name, parallelization and inference settings. 
 
-Using parameter files similar to the the image above, we here provide  simple plug and play example to test the functioning of Bayesian Deconvolution on a personal computer. In the provided example for experimental mitochondria image in HeLa cells, we provide the input "raw_image.tif" file. 
+Using parameter files similar to the the image above, we here provide  simple plug and play example to test the functioning of BayesianDeconvolution on a personal computer. In the provided example for experimental mitochondria image in HeLa cells, we provide the input "raw_image.tif" file. 
 
-Currently, Bayesian Deconvolution accepts rectangular images. Furthermore, the current version provides two options for the PSF: "gaussian" and "airy_disk", but can be modified easily to incorporate any other shape.
+Currently, BayesianDeconvolution accepts rectangular images. Furthermore, the current version provides two options for the PSF: "gaussian" and "airy_disk", but can be modified easily to incorporate any other shape.
 
 With the settings in the image above, the code divides all the images into 4 sets of sub-images of equal sizes (a 2x2 grid). Next, each set of sub-images is then sent to their assigned processor and inference is performed on the object intensity map. The number of processors can be changed if running on a more powerful computer by changing "n_procs_per_dim_x" and "n_procs_per_dim_y" parameters, which are set to 2 by default.
 
@@ -57,7 +57,7 @@ To run this example, we suggest putting the scripts and the input tif files in t
 
 ```cd("/home/username/BayesianDeconvolution/")```
 
-Bayesian Deconvolution code can now be executed by simply importing the "main.jl" in the REPL as shown in the picture below
+BayesianDeconvolution code can now be executed by simply importing the "main.jl" in the REPL as shown in the picture below
 
 ```include("main.jl")```
 
