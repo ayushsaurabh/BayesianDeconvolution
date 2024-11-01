@@ -39,12 +39,7 @@ These two ways are equivalent. Both of them create a new Julia environment the f
 
 Complex programs like B-SIM require scripts for better organization instead of typing functions into the REPL for every run. B-SIM is currently organized into multiple scripts. The main script "main.jl" calls all the functions performing SIM reconstruction and the input parameter script "input_parameters.jl" defines all the input parameters needed to perform reconstruction (see the image below).
 
-
-
-![image](https://github.com/ayushsaurabh/B-SIM/assets/87823118/83d0c6ca-4863-49e1-9e92-8d3122489433)
-
-
-
+![image](https://github.com/user-attachments/assets/86bcf040-fbf9-4f1c-b0f6-ca04294bb68b)
 
 These parameters define the shape of the microscope point spread function (numerical aperture, magnification, light wavelength), camera noise (gain, CCD sensitivity, readout), directory (folder) where files are located, file name, parallelization and inference settings. 
 
