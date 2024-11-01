@@ -74,8 +74,7 @@ On a linux or macOS machine, the "main.jl" script can be run directly from the t
 
 Now, BayesianDeconvolution is a fully parallelized code and starts execution by first adding the required number of processors. Next, all the input tif files are imported and divided according to the parallelization grid (2x2 by default). The sub-images are then sent to each processor. All the functions involved in deconvolution are compiled next. Finally, the sampler starts and with each iteration outputs the log(posterior) values and a temperature parameter that users are not required to modify (see picture below). At the end of each iteration, sub-images are sent back to the master processor and combined into one image.
 
-![image](https://github.com/ayushsaurabh/B-SIM/assets/87823118/93570832-ead3-4d3a-a16d-6d52afc0bbea)
-
+![image](https://github.com/user-attachments/assets/16d8569b-e245-4f26-bba3-2818cf2af63b)
 
 
 Depending on the chosen plotting frequency in the "input_parameters.jl" file, the code also generates a plot showing the the log(posterior), the input raw image, current sample, and a mean of the previous samples (depending on averaging frequency) as shown in the picture below.
