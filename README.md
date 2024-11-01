@@ -37,19 +37,19 @@ These two ways are equivalent. Both of them create a new Julia environment the f
 
 ## Test Examples
 
-Complex programs like B-SIM require scripts for better organization instead of typing functions into the REPL for every run. B-SIM is currently organized into multiple scripts. The main script "main.jl" calls all the functions performing SIM reconstruction and the input parameter script "input_parameters.jl" defines all the input parameters needed to perform reconstruction (see the image below).
+Complex programs like Bayesian Deconvolution require scripts for better organization instead of typing functions into the REPL for every run. The code is currently organized into multiple scripts. The main script "main.jl" calls all the functions performing deconvolution and the input parameter script "input_parameters.jl" defines all the input parameters needed to perform reconstruction (see the image below).
 
 ![image](https://github.com/user-attachments/assets/86bcf040-fbf9-4f1c-b0f6-ca04294bb68b)
 
 These parameters define the shape of the microscope point spread function (numerical aperture, magnification, light wavelength), camera noise (gain, CCD sensitivity, readout), directory (folder) where files are located, file name, parallelization and inference settings. 
 
-Using parameter files similar to the the image above, we here provide two simple plug and play example to test the functioning of B-SIM on a personal computer. In the provided example for experimental mitochondria image in HeLa cells with spacing, we provide the input "raw_image.tif" file. 
+Using parameter files similar to the the image above, we here provide  simple plug and play example to test the functioning of Bayesian Deconvolution on a personal computer. In the provided example for experimental mitochondria image in HeLa cells, we provide the input "raw_image.tif" file. 
 
-Currently, B-SIM accepts rectangular images. Furthermore, the current version provides two options for the PSF: "gaussian" and "airy_disk", but can be modified easily to incorporate any other shape.
+Currently, Bayesian Deconvolution accepts rectangular images. Furthermore, the current version provides two options for the PSF: "gaussian" and "airy_disk", but can be modified easily to incorporate any other shape.
 
 With the settings in the image above, the code divides all the images into 4 sets of sub-images of equal sizes (a 2x2 grid). Next, each set of sub-images is then sent to their assigned processor and inference is performed on the object intensity map. The number of processors can be changed if running on a more powerful computer by changing "n_procs_per_dim_x" and "n_procs_per_dim_y" parameters, which are set to 2 by default.
 
-To run this example, we suggest putting B-SIM scripts and the input tif files in the same folder/directory. Next, if running on a Windows machine, first confirm the current folder that julia is being run from by executing the following command in the REPL:
+To run this example, we suggest putting the scripts and the input tif files in the same folder/directory. Next, if running on a Windows machine, first confirm the current folder that julia is being run from by executing the following command in the REPL:
 
 ```pwd()```
 
@@ -57,7 +57,7 @@ To run this example, we suggest putting B-SIM scripts and the input tif files in
 
 ```cd("/home/username/BayesianDeconvolution/")```
 
-B-SIM code can now be executed by simply importing the "main.jl" in the REPL as shown in the picture below
+Bayesian Deconvolution code can now be executed by simply importing the "main.jl" in the REPL as shown in the picture below
 
 ```include("main.jl")```
 
@@ -66,7 +66,7 @@ B-SIM code can now be executed by simply importing the "main.jl" in the REPL as 
 
 
 
-On a linux or macOS machine, the "main.jl" script can be run directly from the terminal after entering the B-SIM directory and executing the following command:
+On a linux or macOS machine, the "main.jl" script can be run directly from the terminal after entering the code directory and executing the following command:
 
 ```julia main.jl```
 
