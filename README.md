@@ -79,7 +79,8 @@ Now, BayesianDeconvolution is a fully parallelized code and starts execution by 
 
 Depending on the chosen plotting frequency in the "input_parameters.jl" file, the code also generates a plot showing the the log(posterior), the input raw image, current sample, and a mean of the previous samples (depending on averaging frequency) as shown in the picture below.
 
-![image](https://github.com/ayushsaurabh/B-SIM/assets/87823118/461213dd-18f6-4766-a75e-d266511d102d)
+![image](https://github.com/user-attachments/assets/8bec8594-249b-4b7a-a0f2-d88dabdebbcf)
+
 
 
 Finally, as samples are collected, the code saves intermediate samples and analysis data onto the hard drive in the TIFF format with file names that look like "mean_inferred_object_2.0.tif" and "inferred_object_2.0.tif". The save frequency can be modified by changing a few inference parameters in the "input_parameters.jl" file: "chain_burn_in_period" during which an optimizer quickly converges to a reasonable deconvolved image after the code is started; simulated annealing is restarted at regular intervals after chain burn-in and is set by the parameter "annealing_frequency"; simulated annealing starts with temperature set by "annealing_starting_temperature" and then the temperature decays exponentially with time constant set by "annealing_time_constant"; samples to be averaged are collected after the "annealing_burn_in_period" during which the sampler converges after increasing the temperature; and lastly, samples are collected at the "averaging_frequency" after the annealing burn-in period. Use of simulated annealing here helps uncorrelate the chain of samples by smoothing and widening the posterior at intermediate iterations by raising temperature, allowing the sampler to easily move far away from the current sample. Based on these parameters, the samples are saved whenever the following conditions are satisfied: 
@@ -99,7 +100,10 @@ where % indicates remainder upon division. For instance, using the default setti
 1000, 1310, 1320, 1330, 1340, 1350, 1660, 1670, 1680, 1690, 1700, ...
 
 ```
-**Note: Please note that the first sample after the intial optimizer has converged typically provides a very good estimate of the deconvolved object and can be used right away for analysis. Further Monte Carlo samples should be collected to improve the quality of the deconvolved image even further.**
+**Note: Please note that the first sample after the intial optimizer has converged typically provides a very good estimate of the deconvolved object and can be used right away for analysis (see the picture below). Further Monte Carlo samples should be collected to improve the quality of the deconvolved image even further.**
+
+![image](https://github.com/user-attachments/assets/b52a78b9-43fb-4b8c-b372-acad660d00fa)
+
 
 ## A Brief Description of the Sampler
 
