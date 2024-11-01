@@ -55,7 +55,7 @@ To run this example, we suggest putting the scripts and the input tif files in t
 
 **Please note here that Windows machines use backslashes "\\" to describe folder paths unlike Linux and macOS where forward slashes "/" are used.** Appropriate modifications therefore must be made to the folder paths. Now, if the output of the command above is different from the path containing the scripts and tiff files, the current path can be changed by executing the following command:
 
-```cd("/home/username/BayesianDeconvolution/")```
+```cd("/home/username/BayesianDeconvolution/example_mitochondria/")```
 
 BayesianDeconvolution code can now be executed by simply importing the "main.jl" in the REPL as shown in the picture below
 
