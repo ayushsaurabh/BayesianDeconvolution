@@ -97,7 +97,7 @@ Finally, as samples are collected, the code saves intermediate samples and analy
 where % indicates remainder upon division. For instance, using the default settings in the "input_parameters.jl" file shown above, the samples will be saved at iterations:
 
 ``` 
-1000, 1310, 1320, 1330, 1340, 1350,...
+1000, 1310, 1320, 1330, 1340, 1350, 1660, 1670, 1680, 1690, 1700, ...
 
 ```
 
